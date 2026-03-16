@@ -1,12 +1,12 @@
 /* --- Variáveis --- */
 :root {
-    --first-color: #2ecc71;  /* Verde Esmeralda Claro - Topo (E2E/API) */
-    --second-color: #1b4d3e; /* Verde Petróleo Escuro - Contraste/Escuro */
-    --qa-color: #69ac2b;     /* Mantivemos um tom sóbrio ou você pode usar #145a32 (Verde Floresta) para a Base */
-    --pm-color: #27ae60;     /* Verde Médio - Meio (Integração) */
+    --first-color: #2ecc71;  /* Verde Esmeralda Claro */
+    --second-color: #1b4d3e; /* Verde Petróleo Escuro */
+    --qa-color: #69ac2b;     /*  (Verde Floresta) */
+    --pm-color: #27ae60;     /* Verde Médio */
     --white: #fafffa;        /* Branco levemente esverdeado para harmonia */
     
-    /* Gradiente em tons de verde: Do mais claro (topo) ao mais profundo (base) */
+    /* Gradiente em tons de verde: Do mais claro ao mais profundo */
     --gradiente-piramide: linear-gradient(180deg, 
         #58d68d 0%,    /* Verde Água */
         #2ecc71 50%,   /* Verde Esmeralda */
