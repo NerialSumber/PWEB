@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Opinião</title>
+</head>
+<body>
+    <div class="card">
+        <h2>Responder Pesquisa</h2>
+        <form id="formPesquisa">
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" required min="10" max="120">
+            </div>
+
+            <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" required>
+                    <option value="">Selecione...</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="opiniao">Opinião sobre o filme:</label>
+                <select id="opiniao" required>
+                    <option value="">Selecione...</option>
+                    <option value="4">Ótimo</option>
+                    <option value="3">Bom</option>
+                    <option value="2">Regular</option>
+                    <option value="1">Péssimo</option>
+                </select>
+            </div>
+
+            <button type="submit">Enviar Resposta</button>
+        </form>
+    </div>
+
+    <div class="card" id="painelResultados" style="display: none;">
+        <h2>Resultados em Tempo Real</h2>
+        <p>Total de respostas: <span id="resTotal" class="destaque">0</span></p>
+        <p>Média de idade: <span id="resMedia">0</span> anos</p>
+        <p>Mais velho: <span id="resVelho">0</span> | Mais novo: <span id="resNovo">0</span></p>
+        <p>Votos 'Péssimo': <span id="resPessimo">0</span></p>
+        <p>Votos 'Ótimo' ou 'Bom': <span id="resOtimoBom">0%</span></p>
+        <p>Gêneros: <span id="resMulheres">0</span> M | <span id="resHomens">0</span> H | <span id="resOutros">0</span> O</p>
+    </div>
+    <script>
+
+        let tPessoas = 0;
+        let sIdades = 0;
+        let maiorIdade = 0;
+        let menorIdade = 100;
+        let qtdPessimo = 0;
+        let qtdOtimo = 0;
+        let qtdBom = 0;
+        let qtdMulher = 0;
+        let qtdHomem = 0;
+        let qtdOutros = 0;
+
+        const formulario = document.getElementById('formPesquisa');
+
+        formulario.addEventListener('submit', function(evento) {
+            evento.preventDefault();
+
+            const idadeDigitada = parseInt(document.getElementById('idade').value);
+            const sexoEscolhido = document.getElementById('sexo').value;
+            const opiniaoEscolhida = parseInt(document.getElementById('opiniao').value);
+
+            tPessoas++;
+            sIdades += idadeDigitada;
+
+            if (idadeDigitada > maiorIdade) {
+                maiorIdade = idadeDigitada;
+            }
+            if (idadeDigitada < menorIdade) {
+                menorIdade = idadeDigitada;
+            }
+
+            if (opiniaoEscolhida === 1) {
+                qtdPessimo++;
+            } else if (opiniaoEscolhida === 3) {
+                qtdBom++;
+            } else if (opiniaoEscolhida === 4) {
+                qtdOtimo++; 
+            }
+
+            if (sexoEscolhido === 'feminino') {
+                qtdMulher++;
+            } else if (sexoEscolhido === 'masculino') {
+                qtdHomem++;
+            } else if (sexoEscolhido === 'outros') {
+                qtdOutros++;
+            }
+            
+            const mediaIdades = sIdades / tPessoas;
+            const tOtimoBom = qtdOtimo + qtdBom;
+            const porcOtimoBom = (tOtimoBom / tPessoas) * 100;
+        
+            document.getElementById('painelResultados').style.display = 'block';
+                
+            document.getElementById('resTotal').innerText = tPessoas;
+            document.getElementById('resMedia').innerText = mediaIdades.toFixed(1);
+            document.getElementById('resVelho').innerText = maiorIdade;
+            document.getElementById('resNovo').innerText = menorIdade;
+            document.getElementById('resPessimo').innerText = qtdPessimo;
+            document.getElementById('resOtimoBom').innerText = porcOtimoBom.toFixed(1) + '%';
+            document.getElementById('resMulheres').innerText = qtdMulher;
+            document.getElementById('resHomens').innerText = qtdHomem;
+            document.getElementById('resOutros').innerText = qtdOutros;
+
+            formulario.reset();
+            document.getElementById('idade');
+            
+        }); 
+    </script>
+</body>
+</html>
