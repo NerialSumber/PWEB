@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 9 - Funções JS (Interativo)</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Testes da Atividade 9</h1>
+
+        <div class="card">
+            <h2>1. Maior Número</h2>
+            <input type="number" id="c1_n1" placeholder="Número 1">
+            <input type="number" id="c1_n2" placeholder="Número 2">
+            <input type="number" id="c1_n3" placeholder="Número 3">
+            <button onclick="executarMaior()">Verificar</button>
+            <p>Resultado: <span id="res1" class="resultado">Aguardando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>2. Ordem Crescente</h2>
+            <input type="number" id="c2_n1" placeholder="Número 1">
+            <input type="number" id="c2_n2" placeholder="Número 2">
+            <input type="number" id="c2_n3" placeholder="Número 3">
+            <button onclick="executarOrdem()">Ordenar</button>
+            <p>Resultado: <span id="res2" class="resultado">Aguardando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>3. Palíndromo</h2>
+            <input type="text" id="c3_texto" placeholder="Digite uma frase ou palavra">
+            <button onclick="executarPalindromo()">Verificar</button>
+            <p>Resultado: <span id="res3" class="resultado">Aguardando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>4. Subconjunto</h2>
+            <input type="text" id="c4_p1" placeholder="Palavra principal">
+            <input type="text" id="c4_p2" placeholder="Possível subconjunto">
+            <button onclick="executarSubconjunto()">Verificar</button>
+            <p>Resultado: <span id="res4" class="resultado">Aguardando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>5. Dia da Semana</h2>
+            <input type="date" id="c5_data">
+            <button onclick="executarData()">Descobrir Dia</button>
+            <p>Resultado: <span id="res5" class="resultado">Aguardando...</span></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
