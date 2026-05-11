@@ -6,16 +6,13 @@ function Retangulo(base, altura) {
     };
 }
 
-// Manipulação do formulário do Retângulo
 document.getElementById('formRetangulo').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const base = parseFloat(document.getElementById('baseRet').value);
     const altura = parseFloat(document.getElementById('alturaRet').value);
-    
     const meuRetangulo = new Retangulo(base, altura);
     const area = meuRetangulo.calcularArea();
-    
     const divRes = document.getElementById('resRetangulo');
     divRes.style.display = 'block';
     divRes.innerText = `Objeto Retângulo criado!\nBase: ${base} | Altura: ${altura}\nÁrea Calculada: ${area}`;
@@ -29,16 +26,12 @@ class Conta {
         this._saldo = Number(saldo);
     }
 
-    // Getters e Setters
     get nomeCorrentista() { return this._nomeCorrentista; }
     set nomeCorrentista(valor) { this._nomeCorrentista = valor; }
-
     get banco() { return this._banco; }
     set banco(valor) { this._banco = valor; }
-
     get numeroConta() { return this._numeroConta; }
     set numeroConta(valor) { this._numeroConta = valor; }
-
     get saldo() { return this._saldo; }
     set saldo(valor) { this._saldo = Number(valor); }
 }
