@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 12 - PWEB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+        h1 { color: #0056b3; margin-bottom: 30px; }
+        h2, h3 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9em; }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        button:hover { background-color: #0056b3; }
+        .resultado {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #28a745;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            display: none;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+        }
+        .grid-forms {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        @media (max-width: 600px) {
+            .grid-forms { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Atividade 12 - Desenvolvimento Web</h1>
+
+    <div class="card">
+        <h2>1. Retângulo (Função Construtora)</h2>
+        <form id="formRetangulo">
+            <div class="form-group">
+                <label>Base (x):</label>
+                <input type="number" id="baseRet" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label>Altura (y):</label>
+                <input type="number" id="alturaRet" step="0.01" required>
+            </div>
+            <button type="submit">Calcular Área</button>
+        </form>
+        <div id="resRetangulo" class="resultado"></div>
+    </div>
+
+    <div class="card">
+        <h2>2. Sistema Bancário (Herança e Classes)</h2>
+        <div class="grid-forms">
+            <form id="formCorrente">
+                <h3>Conta Corrente</h3>
+                <div class="form-group"><label>Nome:</label><input type="text" id="nomeC" required></div>
+                <div class="form-group"><label>Banco:</label><input type="text" id="bancoC" required></div>
+                <div class="form-group"><label>Nº Conta:</label><input type="text" id="numC" required></div>
+                <div class="form-group"><label>Saldo:</label><input type="number" step="0.01" id="saldoC" required></div>
+                <div class="form-group"><label>Limite Especial:</label><input type="number" step="0.01" id="limiteC" required></div>
+                <button type="submit">Gerar Conta Corrente</button>
+                <div id="resCorrente" class="resultado"></div>
+            </form>
+
+            <form id="formPoupanca">
+                <h3>Conta Poupança</h3>
+                <div class="form-group"><label>Nome:</label><input type="text" id="nomeP" required></div>
+                <div class="form-group"><label>Banco:</label><input type="text" id="bancoP" required></div>
+                <div class="form-group"><label>Nº Conta:</label><input type="text" id="numP" required></div>
+                <div class="form-group"><label>Saldo:</label><input type="number" step="0.01" id="saldoP" required></div>
+                <div class="form-group"><label>Juros (%):</label><input type="number" step="0.01" id="jurosP" required></div>
+                <div class="form-group"><label>Vencimento:</label><input type="text" id="vencimentoP" placeholder="Ex: 15/06" required></div>
+                <button type="submit">Gerar Conta Poupança</button>
+                <div id="resPoupanca" class="resultado"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
