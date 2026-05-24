@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    --bg-card: #ffffff;
+    --primary: #4f46e5;
+    --primary-light: #eeebff;
+    --text-main: #102a43;
+    --text-muted: #627d98;
+    --border-color: #bcccdc;
+    --border-focus: #6366f1;
+    --shadow: 0 10px 25px -5px rgba(16, 42, 67, 0.1), 0 8px 10px -6px rgba(16, 42, 67, 0.05);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.grupo-radio {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.opcao-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    width: 100%;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.opcao-radio input {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-custom {
+    height: 16px;
+    width: 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.opcao-radio:has(input:checked) {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.opcao-radio input:checked ~ .radio-custom {
+    border-color: var(--primary);
+    background-color: var(--primary);
+}
+
+.opcao-radio input:checked ~ .radio-custom::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ffffff;
+}
